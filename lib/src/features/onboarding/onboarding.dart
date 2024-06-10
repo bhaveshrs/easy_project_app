@@ -1,7 +1,7 @@
 import 'package:essay_projects/src/config/app_theme.dart';
 import 'package:essay_projects/src/config/constants/images_constants.dart';
 import 'package:essay_projects/src/config/text_style.dart';
-import 'package:essay_projects/src/features/auth/login_screen.dart';
+import 'package:essay_projects/src/features/auth/auth_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:splash_route/splash_route.dart';
 
@@ -114,7 +114,7 @@ class _OnBoardingState extends State<OnBoarding> {
                 onTap: () {
                   Navigator.of(context).push(
                     SplashRoute(
-                      targetPage: const LoginScreen(),
+                      targetPage: const AuthPage(),
                       splashColor: MyTheme.primary,
                       startFractionalOffset: FractionalOffset.bottomCenter,
                       transitionDuration: const Duration(
@@ -147,7 +147,7 @@ class _OnBoardingState extends State<OnBoarding> {
                 } else {
                   Navigator.of(context).push(
                     SplashRoute(
-                      targetPage: const LoginScreen(),
+                      targetPage: const AuthPage(),
                       splashColor: MyTheme.primary,
                       startFractionalOffset: FractionalOffset.bottomCenter,
                       transitionDuration: const Duration(

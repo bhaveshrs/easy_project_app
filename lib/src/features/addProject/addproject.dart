@@ -32,9 +32,7 @@ class _AddYourProjectState extends State<AddYourProject> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor:
-          Theme.of(context).colorScheme.surfaceTint.withOpacity(0.08),
-      appBar: const CommonAppBar(title: "Add Project"),
+   appBar: const CommonAppBar(title: "Add Project"),
       body: Column(
         children: [
           Padding(

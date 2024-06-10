@@ -1,6 +1,6 @@
 import 'package:country_code_picker/country_code_picker.dart';
 import 'package:essay_projects/src/config/app_theme.dart';
-import 'package:essay_projects/src/config/common_widgets/app_textfild.dart';
+import 'package:essay_projects/src/config/common_widgets/app_dropdown.dart';
 import 'package:essay_projects/src/config/common_widgets/phone_text_fild.dart';
 import 'package:essay_projects/src/config/text_style.dart';
 import 'package:flutter/material.dart';
@@ -15,11 +15,11 @@ class AddProfileFirstPage extends StatefulWidget {
 class _AddProfileFirstPageState extends State<AddProfileFirstPage> {
   CountryCode selectedCountry = CountryCode.fromCountryCode('IN');
   TextEditingController phoneNumController = TextEditingController();
+  String? selectedGender;
 
   @override
   Widget build(BuildContext context) {
-    return
-     Padding(
+    return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10.0),
       child: SingleChildScrollView(
         child: Column(
@@ -75,29 +75,41 @@ class _AddProfileFirstPageState extends State<AddProfileFirstPage> {
               ),
             ),
             Text(
-              "Full name",
-              style: AppTextStyle.poppinsMediumText(fontSize: 18),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            AppTextField(
-              onChange: () {},
-              hintText: "Lieeo Dasss",
-            ),
-             const SizedBox(
-              height: 10,
-            ),
-              Text(
               "Phone number",
               style: AppTextStyle.poppinsMediumText(fontSize: 18),
             ),
             const SizedBox(
               height: 10,
             ),
-            CountryCodePhoneTextFiled(phoneNumController: phoneNumController,
+            CountryCodePhoneTextFiled(
+              phoneNumController: phoneNumController,
               selectedCountry: selectedCountry,
-            )
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Text(
+              "Gender",
+              style: AppTextStyle.poppinsMediumText(fontSize: 18),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            AppDropdown(
+                hintText: "Select gender",
+                borderColor: Colors.grey,
+                value: selectedGender,
+                onChanged: (String? value) {
+                  setState(() {
+                    selectedGender = value!;
+                  });
+                },
+                items: const [
+                  'Male',
+                  'Female',
+                  'Non-binary',
+                  'prefer not say'
+                ]),
           ],
         ),
       ),

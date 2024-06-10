@@ -12,6 +12,7 @@ class AppTextField extends StatelessWidget {
   final Function? onChange;
   final Widget? prefixIcon;
   final Function? onSuffixIconPress;
+  final Widget? onSuffixIcon;
   final Function? onTap;
   final Function? onValidator;
   final int? maxLength;
@@ -37,14 +38,16 @@ class AppTextField extends StatelessWidget {
       this.prefixIcon,
       this.maxLength,
       this.onSuffixIconPress,
+      this.onSuffixIcon,
       this.obscureText = false,
       this.readOnly = false,
       this.contentPadding,
-      this.onTap, this.maxLines});
+      this.onTap,
+      this.maxLines});
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(maxLines: maxLines,
+    return TextFormField(
         readOnly: readOnly,
         onTap: () => onTap?.call(),
         maxLength: maxLength,
@@ -56,12 +59,12 @@ class AppTextField extends StatelessWidget {
         autovalidateMode: AutovalidateMode.onUserInteraction,
         onChanged: (value) => onChange?.call(value),
         validator: (value) => onValidator?.call(value),
-        decoration: 
-        InputDecoration(  
+        decoration: InputDecoration(
           contentPadding: contentPadding,
           fillColor: MyTheme.secondary.withOpacity(0.2),
           filled: true,
           prefixIcon: prefixIcon,
+          suffixIcon: onSuffixIcon,
           isDense: true,
           hintText: hintText,
           errorStyle: TextStyle(
@@ -87,58 +90,7 @@ class AppTextField extends StatelessWidget {
               ),
               borderSide: BorderSide(color: Colors.grey, width: 1)),
         ));
- 
   }
 }
      
-     
-     
-      // TextFormField(
-      //                         controller: _passwordController,
-      //                         obscureText: !_isPasswordVisible,
-      //                         keyboardType: TextInputType.visiblePassword,
-      //                         onChanged: (password) {},
-      //                         style: TextStyle(
-      //                             color: ColorConst.textColor22,
-      //                             fontSize: 14,
-      //                             fontFamily: poppinsSemiBoldFont),
-      //                         decoration: InputDecoration(
-      //                           hintText: "Enter your password",
-      //                           hintStyle: TextStyle(
-      //                               fontFamily: poppinsRegularFont,
-      //                               fontSize: 14,
-      //                               color: ColorConst.grey64),
-      //                           border: OutlineInputBorder(
-      //                               borderRadius: const BorderRadius.only(
-      //                                   bottomLeft: Radius.circular(4),
-      //                                   bottomRight: Radius.circular(4)),
-      //                               borderSide: BorderSide(
-      //                                   color: ColorConst.greyE4, width: 1)),
-      //                           enabledBorder: OutlineInputBorder(
-      //                               borderRadius: const BorderRadius.only(
-      //                                   bottomLeft: Radius.circular(4),
-      //                                   bottomRight: Radius.circular(4)),
-      //                               borderSide: BorderSide(
-      //                                   color: ColorConst.greyE4, width: 1)),
-      //                           focusedBorder: OutlineInputBorder(
-      //                               borderRadius: const BorderRadius.only(
-      //                                   bottomLeft: Radius.circular(4),
-      //                                   bottomRight: Radius.circular(4)),
-      //                               borderSide: BorderSide(
-      //                                   color: ColorConst.greyE4, width: 1)),
-      //                           suffixIcon: IconButton(
-      //                             icon: Icon(
-      //                               _isPasswordVisible
-      //                                   ? Icons.visibility
-      //                                   : Icons.visibility_off,
-      //                               color: ColorConst.grey64,
-      //                             ),
-      //                             onPressed: () {
-      //                               setState(() {
-      //                                 _isPasswordVisible = !_isPasswordVisible;
-      //                               });
-      //                             },
-      //                           ),
-      //                         ),
-      //                       )
                         

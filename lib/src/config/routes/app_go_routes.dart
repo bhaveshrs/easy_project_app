@@ -1,5 +1,6 @@
 import 'package:essay_projects/src/config/routes/route_name.dart';
 import 'package:essay_projects/src/features/addProject/addproject.dart';
+import 'package:essay_projects/src/features/auth/auth_screen.dart';
 import 'package:essay_projects/src/features/chat/chat_screen.dart';
 import 'package:essay_projects/src/features/developer_profile/developer_profile.dart';
 import 'package:essay_projects/src/features/error/error_screen.dart';
@@ -18,7 +19,7 @@ class AppRouter {
   factory AppRouter() => _instance ??= AppRouter._privateConstructor();
 
   final router = GoRouter(
-    initialLocation: AppRouteNames.home,
+    initialLocation: AppRouteNames.onBoarding,
     debugLogDiagnostics: true,
     routes: [
       GoRoute(
@@ -27,6 +28,13 @@ class AppRouter {
           child: OnBoarding(),
         ),
       ),
+      GoRoute(
+        path: AppRouteNames.register,
+        pageBuilder: (context, state) => const MaterialPage(
+          child: AuthPage(),
+        ),
+      ),
+   
       GoRoute(
         path: AppRouteNames.home,
         pageBuilder: (context, state) => const MaterialPage(

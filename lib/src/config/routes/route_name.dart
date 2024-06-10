@@ -1,5 +1,6 @@
 class AppRouteNames {
   static const String onBoarding = '/onBoarding';
+  static const String register = '/register';
   static const String home = '/home';
   static const String login = '/temp';
   static const String addProject = '/addProject';

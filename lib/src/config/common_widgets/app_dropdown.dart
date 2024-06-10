@@ -1,3 +1,4 @@
+import 'package:essay_projects/src/config/app_theme.dart';
 import 'package:essay_projects/src/config/text_style.dart';
 import 'package:flutter/material.dart';
 
@@ -46,8 +47,8 @@ class AppDropdown<T> extends StatelessWidget {
       }).toList(),
       onChanged: onChanged,
       decoration: InputDecoration(
-        contentPadding: contentPadding,
-        fillColor: Colors.blueGrey[100],
+        contentPadding: const EdgeInsets.symmetric(vertical: 15,horizontal: 10),
+        fillColor: MyTheme.secondary.withOpacity(0.2),
         filled: true,
         prefixIcon: prefixIcon,
         suffixIcon: suffixIcon,
